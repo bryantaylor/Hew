@@ -1,0 +1,24 @@
+.home {
+	@include zimmer('regular');
+	
+	.content {
+		border-top: 10px solid $blue;
+	}
+
+	.wrap-content {
+		@include rem(width, 95.0);
+		margin: 0 auto;
+		padding-top: 13rem;
+	}
+
+	p {
+		@include font-size(3.2, 1.25);
+		@include rem(margin, 0, 0, 2.5);
+		padding: 0;
+	}
+
+	.call-to-action {
+		text-align: center;
+		padding-top: 2rem;
+	}
+}
