@@ -6,9 +6,9 @@
 	}
 
 	.wrap-content {
+		@include rem(padding-top, 13.0);
 		@include rem(width, 95.0);
 		margin: 0 auto;
-		padding-top: 13rem;
 	}
 
 	p {
@@ -18,7 +18,7 @@
 	}
 
 	.call-to-action {
+		@include rem(padding-top, 2.0);
 		text-align: center;
-		padding-top: 2rem;
 	}
 }
