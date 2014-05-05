@@ -2,33 +2,34 @@
 ------------------------- */
 
 body {
-    
+	background: #F3F3F5;
+	color: #000000;
 }
 
 select, input, textarea {
-      color: $input-color;
+	color: $input-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
+	font-weight: normal;
 }
 
 a:hover, a:active {
-    outline: none;
+	outline: none;
 }
 
 a, a:active, a:visited {
-    color: #607890;
+	color: #607890;
 }
 
 a:hover, a:focus {
-    color: #036;
+	color: #036;
 }
 
 a:link {
-    -webkit-tap-highlight-color: #FF5E99;
+	-webkit-tap-highlight-color: #FF5E99;
 }
 
 blockquote {
-    
+	
 }
