@@ -23,6 +23,24 @@
     }
 }
 
+@mixin transition($trans: all, $duration: 0.1s, $function: linear) {
+    -webkit-transition: $trans $duration $function;
+    -moz-transition: $trans $duration $function;
+    -o-transition: $trans $duration $function;
+    -ms-transition: $trans $duration $function;
+    transition: $trans $duration $function;
+}
+
+@mixin inline-block($alignment: none) {
+    display: inline-block;
+    @if $alignment and $alignment != none {
+        vertical-align: $alignment; 
+    }
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+}
+
 // Tell respond-min and respond-max to output all media queries by default
 $viewport-width: false !default;
 
@@ -52,11 +70,49 @@ $viewport-width: false !default;
     }
 }
 
+// Required for the rem mixin
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
 // // Fonts mixin example 
-// @mixin name-of-typeface($weight) {
-//     @if $weight == '(some-weight)' {
-//         font-family: ;
-//         font-style: ;
-//         font-weight: ;
-//     }
-// }
+@mixin zimmer($weight) {
+    @if $weight == 'regular' {
+        font-family: "Zimmer", $sans;
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    @if $weight == 'bold' {
+        font-family: 'Zimmer Bold', $sans;
+        font-style: normal;
+        font-weight: normal;
+    }
+}
+
+@mixin rem($property, $values...) {
+    $max: length($values);
+    $pxValues: '';
+    $remValues: '';
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $pxValues: #{$pxValues + $value*10}px;
+
+        @if $i < $max {
+            $pxValues: #{$pxValues + " "};
+        }
+    }
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $remValues: #{$remValues + $value}rem;
+
+        @if $i < $max {
+            $remValues: #{$remValues + " "};
+        }
+    }
+
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
