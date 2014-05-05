@@ -1,5 +1,23 @@
 /* 02 =COMMON STYLES
 ------------------------- */
+@font-face {
+	font-family:"Zimmer";
+	src:url("/webfonts/zimmer_RegularWeb?#iefix");
+	src:url("/webfonts/zimmer_RegularWeb?#iefix") format("eot"),
+		url("/webfonts/zimmer_RegularWeb.woff") format("woff");
+}
+
+@font-face {
+	font-family:"Zimmer Bold";
+	src:url("/webfonts/zimmer_BoldWeb?#iefix");
+	src:url("/webfonts/zimmer_BoldWeb?#iefix") format("eot"),
+		url("/webfonts/zimmer_BoldWeb.woff") format("woff");
+}
+
+html { 
+	overflow-y: scroll;
+	font-size: 62.5%;
+}
 
 body {
 	background: #F3F3F5;
@@ -32,4 +50,26 @@ a:link {
 
 blockquote {
 	
+}
+
+.btn {
+	@include font-size(1.6);
+	@include inline-block;
+	@include transition(background, ease-out, .2s);
+	@include rem(padding, 2.0, 4.0);
+	background: $blue;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+
+	&:hover {
+		color: #fff;
+		background: lighten( $blue, 3% );
+	}
+
+	&:active {
+		color: #fff;
+		background: darken( $blue, 3% );
+	}
+
 }
