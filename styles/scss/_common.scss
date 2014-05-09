@@ -56,11 +56,14 @@ blockquote {
 	@include font-size(1.6);
 	@include inline-block;
 	@include transition(background, ease-out, .2s);
-	@include rem(padding, 2.0, 4.0);
+	@include rem(padding, 2.5, 9.0);
 	background: $blue;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
+	@include respond-min($tablet) {
+		@include rem(padding, 2.0, 4.0);
+	}
 
 	&:hover {
 		color: #fff;
